@@ -9,9 +9,10 @@ import React from 'react';
 
 
 export const metadata: Metadata = {
-  title: "Moja apicka",
-  description: "Made by Sasenka Masenka",
+  title: "Moja app",
+  description: "Made by Sude",
 };
+
 
 export default function RootLayout({
   children,
@@ -21,15 +22,20 @@ export default function RootLayout({
   return (
     <html lang="sk">
       <body>
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-          <main style={{ flexGrow: 1 }}>
-            {children}
-          </main>
-          <Navbar /> {/* Bottom Navigation */}
-        </div>
+        <AuthProvider>
+          <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            <main style={{ flexGrow: 1 }}>
+              {children}
+            </main>
+          </div>
+          <Navbar /> {/* Moved Navbar outside of the main container */}
+        </AuthProvider>
       </body>
     </html>
   );
 }
+
+
+
 
 
